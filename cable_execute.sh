@@ -5,7 +5,7 @@
 ticket=$1
 
 #uses local script to retieve list of devices attached to ticket 
-serverlist=$(/Users/mich8699/git/eascripts/utilities/devices_on $ticket)
+serverlist=$(/Users/mich8699/git/scripts/utilities/devices_on $ticket)
 
 echo 'Ticket #'$ticket
 for server in ${serverlist[@]}
