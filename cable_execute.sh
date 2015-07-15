@@ -10,6 +10,8 @@ serverlist=$(/Users/mich8699/git/scripts/utilities/devices_on $ticket)
 echo 'Ticket #'$ticket
 for server in ${serverlist[@]}
 do
+        #pushes cable_check.sh to each server into /home/rack from my device
+        ht -c /Users/mich8699/Scripts/cable_check.sh $server:/home/rack/
         #Executes the cable_check script on each local device attached to ticket #
         ht -C '/home/rack/cable_check.sh > /home/rack/cable_check.out' --sudo-make-me-a-sandwich --expect-timeout 900 $server &
         #script takes aprox 10mins to finish, so timeout for ht set to 15mins to prevent error messages
